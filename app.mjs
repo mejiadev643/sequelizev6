@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import sequelize  from './Databases/connection.mjs'
+import sequelize  from './app/database/connection.mjs'
 
 try {
     await sequelize.authenticate();
