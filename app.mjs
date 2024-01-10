@@ -1,9 +1,11 @@
-import 'dotenv/config'
-import sequelize  from './app/database/connection.mjs'
+import 'dotenv/config';
+import express from 'express';
 
-try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
+import routes from './routes/routes.mjs';
+const app = express();
+app.use(express.json());
+app.use(express.text());
+
+
+app.use(routes);
+app.listen(process.env.PORT || 300,()=>{console.log("Servidor en: http://localhost:"+process.env.PORT)})
